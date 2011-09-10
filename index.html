@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="js/jquery/jquery-1.6.3.min.js" type="text/javascript"></script>
+		<script src="js/jquery.subwayMap-0.5.0.js" type="text/javascript"></script>
+		<style type="text/css">
+	    body
+	    {
+	        font-family: Verdana;
+	        font-size: 8pt;
+	    }
+
+	    /* The main DIV for the map */
+	    .subway-map
+	    {
+	        margin: 0;
+	        width: 500px;
+	        height:410px;
+	        background-color: white;
+	    }
+
+	    /* Text labels */
+	    .text
+	    {
+	        text-decoration: none;
+	        color: black;
+	    }
+
+	    #legend
+	    {
+	        float: left;
+	        width: 250px;
+	        height:400px;
+	    }
+
+	    #legend div
+	    {
+	        height: 25px;
+	    }
+
+	    #legend span
+	    {
+	        margin: 5px 5px 5px 0;
+	    }
+	    .subway-map span
+	    {
+	        margin: 5px 5px 5px 0;
+	    }
+	 
+	    </style>
+	</head>
+	<body>
+		<div class="subway-map" data-columns="100" data-rows="100" data-cellSize="40" data-legendId="legend" data-textClass="text" data-gridNumbers="true" data-grid="false" data-lineWidth="8">
+			<ul data-color="#FF0000" data-label="Ruston Subway">
+				<li data-coords="50,50"></li>
+				<li data-coords="47,50"></li>
+				<li data-coords="46,51" data-dir="W"></li>
+				<li data-coords="46,54" data-marker="interchange">Gavan Central</li>
+			</ul>
+			<ul data-color="#66CCFF" data-label="Gavan-Ruston Line">
+				<li data-coords="46,54"></li>
+				<li data-coords="51,54"></li>
+				<li data-coords="52,53" data-dir="E"></li>
+				<li data-coords="52,48"></li>
+			</ul>
+			<ul data-color="#0000FF" data-label="Ruston-Penderton"  data-shiftCoords="0,-1">
+				<li data-coords="50,50"></li>
+				<li data-coords="50,49.9" data-marker="@interchange">Ruston Central</li>
+				<li data-coords="47,50.1" data-marker="@station">Tree Walk</li>
+				<li data-coords="41,50"></li>
+				<li data-coords="40,51" data-dir="W"></li>
+				<li data-coords="40,54" data-marker="interchange">Penderton</li>
+			</ul>
+			<ul data-color="#00FF00" data-label="Penderton-Gavan">
+				<li data-coords="40,54"></li>
+				<li data-coords="43,54">Gavan West</li>
+				<li data-coords="46,54"></li>
+			</ul>
+			<ul data-color="#CCCCCC" data-label="Penderton Line">
+				<li data-coords="40,54"></li>
+				<li data-coords="40,57">Penderton East</li>
+			</ul>
+			<ul data-color="#800000" data-label="Ruston Line">
+				<li data-coords="50,50"></li>
+				<li data-coords="51,49" data-dir="E"></li>
+				<li data-coords="52,48" data-marker="interchange">Ruston Port</li>
+			</ul>
+			<ul data-color="#FFCC66" data-label="Anok Express">
+				<li data-coords="46,54"></li>
+				<li data-coords="46,55"></li>
+				<li data-coords="47,56" data-dir="S"></li>
+				<li data-coords="48,56"></li>
+				<li data-coords="49,57" data-dir="E"></li>
+			</ul>
+			<ul data-color="#CC66FF" data-label="Anok-Foresta">
+				<li data-coords="49,57" data-marker="interchange">Anok</li>
+				<li data-coords="53,57"></li>
+				<li data-coords="54,57"></li>
+				<li data-coords="55,56" data-dir="E"></li>
+				<li data-coords="56,55"></li>
+				<li data-coords="58,55"></li>
+				<li data-coords="59,54" data-dir="E"></li>
+				<li data-coords="59,50" data-marker="interchange">Foresta</li>
+			</ul>
+			<ul data-color="#CC66FF" data-label="Anok-Paradiso">
+				<li data-coords="52,57"></li>
+				<li data-coords="53,58" data-dir="E"></li>
+				<li data-coords="53,60">Paradiso</li>
+			</ul>
+			<ul data-color="#CC66FF" data-label="Foresta-Paradiso">>
+				<li data-coords="54,57"></li>
+				<li data-coords="53,58" data-dir="W"></li>
+			</ul>
+			<ul data-color="#004080" data-label="Ruston-Aelview">>
+				<li data-coords="52,48"></li>
+				<li data-coords="56,48" data-marker="interchange">Aelview</li>
+			</ul>
+			<ul data-color="#FF0080" data-label="Foresta-Aelview">>
+				<li data-coords="56,48"></li>
+				<li data-coords="57,49" data-dir="E"></li>
+				<li data-coords="58,50" data-dir="S"></li>
+				<li data-coords="59,50"></li>
+			</ul>
+			<ul data-color="#66FFCC" data-label="Aelview-Ironwall">>
+				<li data-coords="56,48"></li>
+				<li data-coords="56,54">Ironwall</li>
+			</ul>
+			<ul data-color="#CCFF66" data-label="Aelview-Profecta">>
+				<li data-coords="56,48"></li>
+				<li data-coords="56,44">Profecta</li>
+			</ul>
+			<ul data-color="#FF8000" data-label="Ruston-Liberton">>
+				<li data-coords="52,48"></li>
+				<li data-coords="52,41">Liberton</li>
+			</ul>
+			<ul data-color="#FF8000" data-label="Profecta-Liberton">>
+				<li data-coords="56,44"></li>
+				<li data-coords="53,44"></li>
+				<li data-coords="52,43" data-dir="W"></li>
+			</ul>
+			<ul data-color="#FF8000" data-label="Profecta-Ruston">>
+				<li data-coords="56,44"></li>
+				<li data-coords="53,44"></li>
+				<li data-coords="52,45" data-dir="W"></li>
+			</ul>
+		</div>
+
+		<!--<div class="subway-map" data-columns="12" data-rows="10" data-cellSize="40" data-legendId="legend" data-textClass="text" data-gridNumbers="true" data-grid="false" data-lineWidth="8">
+        <ul data-color="#ff4db2" data-label="jQuery Widgets">          
+            <li data-coords="2,2" data-marker="interchange"><a href="http://jqueryui.com/demos/accordion/">Accordion</a></li>  
+            <li data-coords="4,2"><a href="http://jqueryui.com/demos/autocomplete/"><a href="http://jqueryui.com/demos/autocomplete/">Auto\ncomplete</a></li>  
+            <li data-coords="5,3" data-dir="E"></li>  
+            <li data-coords="5,7" data-marker="@station" data-labelPos="W"><a href="http://jqueryui.com/demos/slider/">Slider</a></li> 
+            <li data-coords="6,4" data-dir="S" data-marker="interchange" data-markerInfo="h5"><a href="http://jqueryui.com/demos/datepicker/">Date\npicker</a></li>  
+            <li data-coords="7,4"></li>  
+            <li data-coords="7.15,8" data-marker="@station" data-labelPos="E"><a href="http://jqueryui.com/demos/dialog/">Dialog</a></li>
+            <li data-coords="8,3" data-dir="E"></li>  
+            <li data-coords="8,2"></li>  
+            <li data-coords="9,1" data-dir="N"></li>  
+            <li data-coords="10,2" data-dir="E" data-marker="interchange" data-labelPos="E"><a href="http://jqueryui.com/demos/button/">Button</a></li>  
+            <li data-coords="10,5"></li>  
+            <li data-coords="9,6" data-dir="S" data-marker="station"><a href="http://jqueryui.com/demos/progressbar/">Progress\nbar</a></li>  
+            <li data-coords="6,9"></li>  
+            <li data-coords="5,8" data-dir="W"></li>  
+            <li data-coords="5,7"></li>  
+            <li data-coords="4,6" data-dir="N"></li>  
+            <li data-coords="2,6"><a href="http://jqueryui.com/demos/tabs/">Tabs</a></li>  
+        </ul>
+
+        <ul data-color="#00ff00" data-label="jQuery Interactions" data-shiftCoords="0,-1">      
+            <li data-coords="2,6"></li> 
+            <li data-coords="2,5.9" data-marker="@interchange"> </li> 
+            <li data-coords="5,6" data-marker="@station" data-labelPos="N"><a href="http://jqueryui.com/demos/selectable/">Selectable</a></li>  
+            <li data-coords="6,6"></li>  
+            <li data-coords="7,3" data-marker="@station" data-labelPos="W"><a href="http://jqueryui.com/demos/resizeable/">Resizeable</a></li>  
+            <li data-coords="7,5" data-dir="E" data-marker="station" data-labelPos="E"><a href="http://jqueryui.com/demos/droppable/">Droppable</a></li>  
+            <li data-coords="7,1" data-marker="interchange" data-labelPos="W"><a href="http://jqueryui.com/demos/draggable/">Draggable</a></li>  
+        </ul>
+-->
+    </div>
+    <div id="legend"></div>
+    
+
+    <script type="text/javascript">
+        $(".subway-map").subwayMap({ debug: true });
+    </script>
+	</body>
+</html>
